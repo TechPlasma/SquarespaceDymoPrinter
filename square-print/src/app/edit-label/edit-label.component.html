@@ -1,0 +1,101 @@
+<h1 mat-dalog-title align="center">{{dialogAction}}</h1>
+
+<div mat-dialog-content class="editor scroll-section">
+	<mat-tab-group>
+		<mat-tab label="Label">
+			<br>
+			<mat-form-field class="full-width" appearance="outline">
+				<mat-label>Label Name</mat-label>
+				<input matInput type="text" placeholder="Label Name" 
+						[(ngModel)]="data.oldlabel.name" name="LabelNameInput"
+						autocomplete="off"/>
+				<button mat-button *ngIf="data.oldlabel.name" matSuffix mat-icon-button 
+						aria-label="Clear" (click)="data.oldlabel.name=''" type="button">
+					<mat-icon>close</mat-icon>
+				</button>
+			</mat-form-field >
+			<mat-form-field class="full-width" appearance="outline">
+				<mat-label>Label Code</mat-label>
+				<textarea matInput type="testarea" placeholder="Label Code" 
+						[(ngModel)]="data.oldlabel.xml" name="LabelCodeInput"
+						autocomplete="off" rows="10" class="scroll-section"></textarea>
+				<button mat-button *ngIf="data.oldlabel.xml" matSuffix mat-icon-button 
+						aria-label="Clear" (click)="data.oldlabel.xml=''" type="button">
+					<mat-icon>close</mat-icon>
+				</button>
+			</mat-form-field>
+		</mat-tab>
+		<mat-tab label="Links" #linksTab>
+			<table>
+				<!-- <tr> -->
+					<th>
+						Target
+					</th>
+					<th>
+						Replacement
+					</th>
+					<th>
+						Delete
+					</th>
+				<!-- </tr> -->
+
+				<tr *ngFor="let link of data.oldlabel.links">
+					<td align="center">
+						{{link.target}}
+					</td>
+					<td align="center">
+						{{link.replace}}
+					</td>
+					<td align="center">
+						<button mat-button mat-icon-button aria-label="Delete"
+								 (click)="data.oldlabel.links = remove(data.oldlabel.links,link);" type="button">
+							<mat-icon>close</mat-icon>
+						</button>
+					</td>
+				</tr>
+				
+				
+			</table>
+		</mat-tab>
+	</mat-tab-group>
+
+
+
+
+		
+</div>
+<div mat-dialog-footer [hidden]="!linksTab.isActive">
+	<mat-card>
+		<mat-form-field style="width:100%;">
+			<mat-label>Target Text</mat-label>
+			<input matInput [(ngModel)]="tempText">
+		</mat-form-field>
+		<br>
+		<mat-form-field style="width:100%;">
+			<mat-select placeholder="Link" [(ngModel)]="tempReplace">
+				<mat-option *ngFor="let item of linkKeys" [value]="item">
+					{{item}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<div align="right">
+			<button mat-raised-button color-primary
+				aria-label="Add Link" (click)="addLink(tempText,tempReplace);">
+				Add Link
+			</button>
+		</div>
+		
+	</mat-card>
+</div>
+
+<div mat-dialog-actions>
+	<button *ngIf="data.edit" mat-raised-button color-primary aria-label="Cancel" 
+			 (click)="cancel();" >
+		Cancel
+	</button>
+	<button mat-raised-button color-primary aria-label="{{buttonText}}" 
+			 [mat-dialog-close]="data.oldlabel" cdkFocusInitial >
+		{{buttonText}}
+	</button>
+	
+</div>

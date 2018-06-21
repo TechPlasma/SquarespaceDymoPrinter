@@ -1,0 +1,87 @@
+<div>
+	<br>
+	<mat-grid-list cols="3" rowHeight="3:1" >
+		<mat-grid-tile >
+			<div  class=" fill-scroll scroll-section">
+				<mat-card>
+					<mat-card-content>
+						<form>
+							<h4 [style.text-align]="'center'">Add Label</h4>
+							<mat-form-field class="full-width" appearance="outline">
+								<mat-label>Label Name</mat-label>
+								<input matInput type="text" placeholder="Label Name" 
+										[(ngModel)]="labelName" name="LabelNameInput"
+										autocomplete="off"/>
+								<button mat-button *ngIf="labelName" matSuffix mat-icon-button 
+										aria-label="Clear" (click)="labelName=''" type="button">
+									<mat-icon>close</mat-icon>
+								</button>
+							</mat-form-field >
+							<mat-form-field class="full-width" appearance="outline">
+								<mat-label>Label Code</mat-label>
+								<textarea matInput type="testarea" placeholder="Label Code" 
+										[(ngModel)]="labelCode" name="LabelCodeInput"
+										autocomplete="off" matTextareaAutosize class="scroll-section"></textarea>
+								<button mat-button *ngIf="labelCode" matSuffix mat-icon-button 
+										aria-label="Clear" (click)="labelCode=''" type="button">
+									<mat-icon>close</mat-icon>
+								</button>
+							</mat-form-field>
+							<br>
+							<button mat-raised-button color-primary aria-label="Add Label" 
+									 type="button" (click)="addLabel();" >
+								Add Label
+							</button>
+
+							
+							{{labelName}}
+							
+						</form>
+
+					</mat-card-content>
+				</mat-card>
+			</div>
+
+			
+			
+		</mat-grid-tile>		
+		<mat-grid-tile [style.overflow]="'auto'" class="scroll-section">
+			<mat-selection-list class="fill-cell" 
+				(selectionChange)="handleSelection($event)">
+				<mat-list-option *ngFor="let label of listOfLabels">
+					{{label.name}} 
+				</mat-list-option>
+			</mat-selection-list>
+		</mat-grid-tile>
+
+		<mat-grid-tile>
+			<form align="center">
+				<button mat-raised-button color="primary" (click)="printLabel();" >
+					Print Selected
+				</button>
+				<br>
+				<mat-form-field appearance="outline">
+					<mat-label>Copies</mat-label>
+					<input matInput type="text" placeholder="Copies" 
+							[(ngModel)]="copies" name="CopiesDisplay"
+							autocomplete="off" />
+					<button mat-button matSuffix mat-icon-button 
+							aria-label="More" (click)="copies = copies +1;" type="button">
+						<mat-icon>keyboard_arrow_up</mat-icon>
+					</button>
+					<button mat-button matSuffix mat-icon-button 
+							aria-label="Less" (click)="copies = copies -1;" type="button">
+						<mat-icon>keyboard_arrow_down</mat-icon>
+					</button>
+				</mat-form-field>
+			</form>
+		</mat-grid-tile>
+	</mat-grid-list>
+</div>
+
+
+
+
+
+
+			

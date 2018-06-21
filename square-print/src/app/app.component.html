@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div  style="width:100vw;height:100vh;">
+	<mat-sidenav-container
+			(backdropClick)="close('backdrop')" style="height:100%">
+		<mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+			<app-side-nav></app-side-nav>
+		</mat-sidenav>
+
+		<mat-sidenav-content class="scroll-section flexy sideNavContent">
+
+			<mat-toolbar class="myToolbar">
+				<button mat-icon-button aria-label="Menu" (click)="sidenav.open()">
+					<mat-icon>menu</mat-icon>
+				</button>
+
+				<span>{{title}}</span>
+			</mat-toolbar>
+
+			<!-- <app-label-interface></app-label-interface> -->
+			<div class="fill-scroll scroll-section">
+				<app-ui2></app-ui2>
+			</div>
+			
+		</mat-sidenav-content>
+	</mat-sidenav-container>
+</div>
+
+
+

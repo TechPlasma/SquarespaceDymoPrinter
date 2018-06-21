@@ -1,0 +1,24 @@
+table{
+	width:100%;
+	table-layout: fixed;
+}
+
+.ordersSpace{
+	/*background-color: lightblue; */
+	text-align: center;
+	height:100%;
+	width:60%;
+}
+
+.printSpace{
+	/*background-color: lightgreen;*/
+	height:40%; 
+	width:40%;
+}
+
+.labelsSpace{
+	/*background-color: darkgreen;*/
+	height:60%;
+	width:40%;
+	
+}

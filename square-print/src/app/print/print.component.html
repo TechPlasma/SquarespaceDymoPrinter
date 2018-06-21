@@ -1,0 +1,28 @@
+<div style="height:100%" [style.overflow]="'auto'" class="scroll-section">	
+	<mat-card style="margin:10px;" align="center">
+		<mat-card-title>Print</mat-card-title>
+		<mat-card-content>
+			<button mat-raised-button color="primary" (click)="print();" >
+				Print
+			</button>
+			<br>
+			<mat-form-field appearance="outline">
+					<mat-label>Copies</mat-label>
+					<button mat-button matPrefix mat-icon-button 
+							aria-label="Less" type="button"
+							(click)="subtractCopies();">
+						<mat-icon>keyboard_arrow_down</mat-icon>
+					</button>
+					
+					<input matInput type="text" placeholder="Copies" 
+							[(ngModel)]="copies" name="CopiesDisplay" 
+							autocomplete="off" style="text-align: center;"/>
+					
+					<button mat-button matSuffix mat-icon-button 
+							aria-label="More" (click)="copies = copies +1;" type="button">
+						<mat-icon>keyboard_arrow_up</mat-icon>
+					</button>
+				</mat-form-field>
+		</mat-card-content>
+	</mat-card>
+</div>

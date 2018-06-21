@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+body { 
+  margin: 0;
+}
+
+.scroll-section::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+}
+.scroll-section::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.26);
+}
+.scroll-section::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.26);
+}
+
+.fill-space {
+	flex: 1 1 auto;
+}
+
+.fill-cell{
+    margin: 10px;
+    height: 100%;
+    width:100%;
+}
+
+.fill-scroll{
+    overflow:auto;
+    height:100%;
+    /*border-radius: 50%;*/
+}
+
+.fill{
+    height: 100%;
+    width:100%;
+}
+
+.full-width{
+    width:100%;
+}
+
+
+/*::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.26);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.26);
+}*/

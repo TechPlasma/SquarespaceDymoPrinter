@@ -1,0 +1,24 @@
+<div style="height:100%" [style.overflow]="'auto'" class="scroll-section">
+	<mat-card style="margin:10px;">
+		<mat-card-title align="center">Labels</mat-card-title>
+		<mat-card-subtitle align="center">
+			<button mat-raised-button color="primary" (click)="addLabel();" >
+				Add Label
+			</button>
+			<button mat-raised-button color="primary" (click)="editLabel();" >
+				Edit Label
+			</button>
+			<button mat-raised-button color="primary" (click)="deleteLabel();" >
+				Delete Label
+			</button>
+		</mat-card-subtitle>
+		<mat-card-content>
+			<mat-selection-list #LabelSelection [(ngModel)]="selectedOptions"
+				*ngIf="listOfLabels!= []" (selectionChange)="updateSelectModel();" >
+				<mat-list-option *ngFor="let label of listOfLabels" [value]="label">
+					{{label.name}} 
+				</mat-list-option>
+			</mat-selection-list>
+		</mat-card-content>
+	</mat-card>
+</div>

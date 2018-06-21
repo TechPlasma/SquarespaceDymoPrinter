@@ -1,0 +1,14 @@
+.editor{
+	max-height: 50vh;
+	min-height:30vh;
+	min-width:25vw;
+	overflow: auto;
+}
+
+.links{
+	text-decoration-style: bold;
+}
+
+table{
+	width:100%;
+}
